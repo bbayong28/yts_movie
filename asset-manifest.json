@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/yts_movie/static/js/main.f81d1b05.js",
+    "index.html": "/yts_movie/index.html",
+    "main.f81d1b05.js.map": "/yts_movie/static/js/main.f81d1b05.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f81d1b05.js"
+  ]
+}
