@@ -30,7 +30,7 @@ const All = () => {
                     movie.map(it => {
                         return (
                             <li key={it.id} className='itm'>
-                                <Link to={`/Action/${it.id}`}>
+                                <Link to={`/detail/${it.id}`}>
                                     <figure>
                                         <img src={it.medium_cover_image} alt={it.title} />
                                     </figure>
@@ -52,7 +52,7 @@ const All = () => {
                 <li>
                     {
                         listNUm.slice(snum, snum + cnum).map((it, idx) => <button onClick={() => setPage(idx + snum)}
-                        key={idx}>{idx + snum}</button>)
+                            key={idx}>{idx + snum}</button>)
                     }
                 </li>
 
