@@ -1,13 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Load from './Load';
+import { Link } from 'react-router-dom';
 
 const List = ({ genre, limit}) => {
     //데이터 가져오기
     //useState([]);에 처음 []설정을 안해주면 map 뿌릴때 에러남
     const [movie, getMovie] = useState([]);
     const [load, setLoad] = useState(true);
-    console.log(genre, limit);
+    //console.log(genre, limit);
     const movieData = async () => {
          setLoad(true)
         const movieItem = await axios.get(`https://yts.mx/api/v2/list_movies.json?limit=${limit}&genre=${genre}`);
@@ -19,33 +20,33 @@ const List = ({ genre, limit}) => {
         movieData();
     }, [genre])
     
-    return (
-        <div>
+return (
+        <section className='List sec'>
+            <h2 className='inner'>{genre}</h2>
             {
                 load
                     ? <Load />
                     :
-                    <ul className='List'>
+                    <ul className='inner grid'>
                         {
-                            //console.log(movie)
-                            movie.map(it => { 
+                            movie.map(it => {
                                 return (
-                                    <li key={it.id}>
-                                        <figure>
-                                            <img src={it.medium_cover_image} alt={it.title} />
-                                        </figure>
-                                        <div>{it.title}</div>{/* 
-                                        <div>{it.genres}</div>
-                                        <div>{it.rating}</div>
-                                        <div>{it.runtime}</div> */}
+                                    <li key={it.id} className='itm'>
+                                        <Link to={`/detail/${it.id}`}>
+                                            <figure>
+                                                <img src={it.medium_cover_image} alt={it.title} />
+                                            </figure>
+                                            <div className="case">
+                                                <div className='desc'>{it.title}</div>
+                                            </div>
+                                        </Link>
                                     </li>
                                 )
                             })
                         }
                     </ul>
             }
-            
-        </div>
+        </section>
     )
 }
 
