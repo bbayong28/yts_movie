@@ -1,9 +1,9 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
-    const natigate = useNavigate();
+    const navigate = useNavigate();
     // const [movie, setMovie] = useState([]);
     const [input, setInput] = useState(null);
     // const getMovie = async () => {
@@ -21,7 +21,7 @@ const Search = () => {
     const submitMovie = e => {
         e.preventDefault();
         // getMovie();
-        natigate(`/search?query_term=${input}`)
+        navigate(`/search?query_term=${input}`)
     }
     return (
         <div className='Search'>
